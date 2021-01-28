@@ -9,7 +9,7 @@ class PostCommentsController < ApplicationController
   end
   
   def destroy
-    PostComment.find(params[:id]).destroy
+    PostComment.find_by(id: params[:id], post_image_id: params[:post_image_id]).destroy
     redirect_to post_image_path(params[:post_image_id])
   end
   
