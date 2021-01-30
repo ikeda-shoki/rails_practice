@@ -1,11 +1,22 @@
-<div class="profile-container">
-  <h3 class="profile-name"><%= @user.name %></h3>
-  <%= attachment_image_tag @user, :profile_image, size: "100x100", format: 'jpeg', fallback: "no_image.jpg"%>
-  <% if current_user == @user %>
-    <p>
-      <%= link_to "プロフィール編集", edit_user_path(@user) %>
-    </p>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="profile-container py-5 text^-center">
+        <div class="profile-image">
+          <%= attachment_image_tag @user, :profile_image, size: "150x150", format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %>
+        </div>
+        <div class="profile-date mt-3">
+          <h4 class="profile-name pb-2"><i class="fas fa-user-check pr-2"></i><%= @user.name %></h4>
+          <% if current_user == @user %>
+            <p>
+              <%= link_to "プロフィール編集", edit_user_path(@user) %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <%= render 'post_images/list', post_images: @post_images %>
+    </div>
+  </div>
 </div>
-
-<%= render 'post_images/list', post_images: @post_images %>
