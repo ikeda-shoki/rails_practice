@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+ 
+ 
+ 
+ // paginate
+ 
+ .pagination  {
+  justify-content: center;
+  margin-top: 3rem;
+ }
